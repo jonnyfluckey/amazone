@@ -4,7 +4,7 @@ class Api::DepartmentsController < ApplicationController
   end
 
   def create
-    @department = Department.new(dept_params)
+    @department = Department.new(dept_params[:id])
       if @department.save
         render json: @department
       else
@@ -13,6 +13,7 @@ class Api::DepartmentsController < ApplicationController
   end
 
   def update
+    @department = Department.find(dept_params[:id])
     if @department.update(dept_params)
       render json: @department
     else
