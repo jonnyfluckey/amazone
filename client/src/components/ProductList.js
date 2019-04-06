@@ -6,6 +6,7 @@ import DepartmentList from './DepartmentList';
 import { Grid, Card, Image } from 'semantic-ui-react';
 
 class ProductList extends Component {
+<<<<<<< HEAD
   // state = { products: [] }
 
   // componentDidMount() {
@@ -18,6 +19,25 @@ class ProductList extends Component {
   //       console.log(err)
   //     })
   // }
+=======
+  state = { products: [] }
+
+
+  componentDidMount = (department) => {
+    axios.get(`/api/departments/${department.id}/product`)
+      .then( res => {
+        this.setState({ products: res.data })
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
+
+
+  displayProduct = () => {
+    return this.state.products.map( product => <Product key={product.id} {...product} />)
+  }
+>>>>>>> 23a9f58317a3696d7743997e0ad24f4d4238d60c
 
   // displayProduct = () => {
   //   return this.state.products.map( product => <Product key={product.id} {...product} />)
@@ -53,6 +73,7 @@ class ProductList extends Component {
     const { name } = this.props
 
     return (
+<<<<<<< HEAD
         <>
         <Grid>
         <Grid.Column>
@@ -63,6 +84,12 @@ class ProductList extends Component {
         </Grid.Column>
         </Grid>
         </>
+=======
+      <>
+        
+      { this.displayProduct() }
+      </>
+>>>>>>> 23a9f58317a3696d7743997e0ad24f4d4238d60c
     )
   }
 } 
