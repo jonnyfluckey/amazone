@@ -9,6 +9,7 @@ import { Container, } from "semantic-ui-react";
 import ProtectedRoute from './shared/ProtectedRoute';
 import DepartmentList from './components/DepartmentList';
 import ProductForm from './components/ProductForm';
+import DepartmentForm from './components/DepartmentForm';
 
 
 const App = () => (
