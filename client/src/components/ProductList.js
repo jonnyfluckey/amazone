@@ -50,7 +50,7 @@ class ProductList extends Component {
     return (
       <>
         <h1>Product List</h1>
-        <ProductForm />
+      
         { this.displayProduct() }
       </>
     )
