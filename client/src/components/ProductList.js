@@ -20,7 +20,7 @@ class ProductList extends Component {
     return this.state.products.map( product => <Product key={product.id} {...product} />)
   }
 
-  addProduct = ([product]) => {
+  addProduct = (product) => {
     axios.post(`/api/products/${product.id}`, { product })
       .then( res => {
         const { products } = this.state
@@ -34,7 +34,7 @@ class ProductList extends Component {
   editProduct = (product) => {
       axios.put(`/api/products/${product.id}`, {product})
       .then( res => {
-          const products = this.state.products.map( p => {
+          const product = this.state.products.map( p => {
               if (p.id === product) 
                 return res.data
               return p
@@ -50,7 +50,7 @@ class ProductList extends Component {
     return (
       <>
         <h1>Product List</h1>
-        <ProductForm />
+        <ProductForm addProduct={this.addProduct}/>
         { this.displayProduct() }
       </>
     )

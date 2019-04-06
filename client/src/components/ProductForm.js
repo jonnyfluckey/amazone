@@ -21,7 +21,7 @@ class ProductForm extends Component {
       this.props.edit(this.state)
       this.props.toggleEdit()
     } else {
-      this.props.add(this.state)
+      this.props.add(this.state) //axios call here
     }
     this.setState({ name: '', description: '', price: '', stock: '' })
   }
