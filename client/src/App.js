@@ -15,6 +15,7 @@ import DepartmentForm from './components/DepartmentForm';
 import FetchUser from './shared/FetchUser'
 
 
+
 const App = () => (
   <Fragment>
     <Navbar />
@@ -27,7 +28,6 @@ const App = () => (
         <ProtectedRoute exact path="/departments" component={DepartmentList} />
         // <Route exact path='/departmentform' component={DepartmentForm} />
         <Route exact path="/products" component={ProductList} />
-        <Route exact path="/productform" component={ProductForm} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
