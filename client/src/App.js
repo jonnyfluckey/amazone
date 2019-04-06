@@ -7,7 +7,9 @@ import Register from './shared/Register';
 import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import ProtectedRoute from './shared/ProtectedRoute';
+import DepartmentList from './components/DepartmentList';
 import ProductForm from './components/ProductForm';
+
 
 const App = () => (
   <Fragment>
@@ -17,6 +19,7 @@ const App = () => (
         <ProtectedRoute exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/departments" component={DepartmentList} />
         <Route exact path='/departmentform' component={DepartmentForm} />
         <Route component={NoMatch} />
       </Switch>
