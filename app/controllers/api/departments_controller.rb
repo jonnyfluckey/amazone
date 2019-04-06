@@ -1,10 +1,13 @@
 class Api::DepartmentsController < ApplicationController
+  before_action :authenticate_user!
   def index
     render json: Department.all
   end
 
   def create
-    @department = Department.new(dept_params[:id])
+    # @department = Department.new(dept_params)
+    # @department.user_id = 5
+    @department = current_user.departments.new(dept_params)
       if @department.save
         render json: @department
       else
@@ -13,7 +16,7 @@ class Api::DepartmentsController < ApplicationController
   end
 
   def update
-    @department = Department.find(dept_params[:id])
+    @department = Department.find(params[:id])
     if @department.update(dept_params)
       render json: @department
     else
