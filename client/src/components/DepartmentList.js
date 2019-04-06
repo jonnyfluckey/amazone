@@ -7,8 +7,10 @@ class DepartmentList extends Component {
 
   state = { departments: [] }
 
+
   componentDidMount() {
     // grab post from db
+    const { id } = this.props.match.params 
     axios.get('/api/departments')
       .then( res => {
         this.setState({ departments: res.data })
@@ -51,12 +53,14 @@ class DepartmentList extends Component {
 
   render() {
 
+
     return(
       <div>
       <h1>List of Departments</h1>
         { this.displayDepartment() }
         <DepartmentForm addDepartment={this.addDepartment} editDepartment={this.editDepartment} />
     </div>
+
     )
   }
 }

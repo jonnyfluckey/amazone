@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Product from './Product';
 import ProductForm from './ProductForm';
+import DepartmentList from './DepartmentList';
 
 class ProductList extends Component {
   state = { products: [] }
 
-  componentDidMount() {
-    axios.get('/api/products')
+
+  componentDidMount = (department) => {
+    axios.get(`/api/departments/${department.id}/product`)
       .then( res => {
         this.setState({ products: res.data })
       })
@@ -16,12 +18,13 @@ class ProductList extends Component {
       })
   }
 
+
   displayProduct = () => {
     return this.state.products.map( product => <Product key={product.id} {...product} />)
   }
 
-  addProduct = ([product]) => {
-    axios.post('/api/products', { product })
+  addProduct = (department, product) => {
+    axios.post(`/api/department/${department.id}/product`, { product })
       .then( res => {
         const { products } = this.state
         this.setState({ products: [...products, res.data] })
@@ -31,8 +34,8 @@ class ProductList extends Component {
       })
   }
 
-  editProduct = (product) => {
-      axios.put(`/api/products/${product.id}`, {product})
+  editProduct = (department, product) => {
+      axios.put(`/api//department/${department.id}/products/${product.id}`, {product})
       .then( res => {
           const products = this.state.products.map( p => {
               if (p.id === product) 
@@ -49,9 +52,8 @@ class ProductList extends Component {
   render() {
     return (
       <>
-        <h1>Product List</h1>
-        <ProductForm add={this.addProduct} editProduct={this.editProduct}/>
-        { this.displayProduct() }
+        
+      { this.displayProduct() }
       </>
     )
   }
