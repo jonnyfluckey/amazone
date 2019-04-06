@@ -1,72 +1,66 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Product from './Product';
-import ProductForm from './ProductForm';
-import DepartmentList from './DepartmentList';
-import { Grid, Card, Image } from 'semantic-ui-react';
+import Product from './Department';
+import ProductForm from './DepartmentForm';
 
 class ProductList extends Component {
 
-  // state = { products: [] }
-
-  // componentDidMount() {
-  //   const {id} = this.props.match.params
-  //   axios.get(`/api/departments/${id}/product`)
-  //     .then( res => {
-  //       this.setState({ products: res.data })
-  //     })
-  //     .catch( err => {
-  //       console.log(err)
-  //     })
-  // }
+  state = { products: [] }
 
 
+  componentDidMount() {
+    // grab post from db
+    axios.get(`/api/departments/${department_id}/products`)
+      .then( res => {
+        this.setState({ products: res.data })
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
 
-  // displayProduct = () => {
-  //   return this.state.products.map( product => <Product key={product.id} {...product} />)
-  // }
+  displayProduct = () => {
+    return this.state.products.map( p => <Product key={p.id} {...p} />)
+  }
 
-  // addProduct = (department, product) => {
-  //   axios.post(`/api/department/${department.id}/product`, { product })
-  //     .then( res => {
-  //       const { products } = this.state
-  //       this.setState({ products: [...products, res.data] })
-  //     })
-  //     .catch( err => {
-  //       console.log(err)
-  //     })
-  // }
+  addProduct = (product) => {
+    axios.post(`/api/departments/${department_id}/products`,  product )
+      .then( res => {
+        const { products } = this.state
+        this.setState({ products: [...products, res.data] })
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
 
-
-  // editProduct = (department, product) => {
-  //     axios.put(`/api//department/${department.id}/products/${product.id}`, {product})
-  //     .then( res => {
-  //         const products = this.state.products.map( p => {
-  //             if (p.id === product) 
-  //               return res.data
-  //             return p
-  //         })
-
-  //     })
-  //     .catch( err => {
-  //       console.log(err)
-  //     })
-  // }
+  editProduct = (product) => {
+    axios.put(`/api/departments/${department{id}/products/${product.id}`, { product })
+      .then( res => {
+        const products = this.state.products.map( p => {
+          if (p.id === product.id)
+            return res.data
+          return p
+        })
+        this.setState({ products })
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
 
   render() {
-    const { name } = this.props
 
-    return (
 
-      <>
-
-        
-      { this.displayProduct() }
-
-      </>
+    return(
+      <div>
+      <h1>List of Products</h1>
+        { this.displayProduct() }
+        <ProductForm addProduct={this.addProduct} editProduct={this.editProduct} />
+    </div>
 
     )
   }
 }
 
-export default ProductList;
+export default ProductList
