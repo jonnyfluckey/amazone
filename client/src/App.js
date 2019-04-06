@@ -7,6 +7,7 @@ import Register from './shared/Register';
 import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import ProtectedRoute from './shared/ProtectedRoute';
+import ProductForm from './components/ProductForm';
 
 const App = () => (
   <Fragment>
