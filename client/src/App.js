@@ -8,6 +8,7 @@ import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import ProtectedRoute from './shared/ProtectedRoute';
 import DepartmentList from './components/DepartmentList';
+import ProductList from './components/ProductList';
 import ProductForm from './components/ProductForm';
 
 
@@ -21,6 +22,8 @@ const App = () => (
         <Route exact path="/register" component={Register} />
         <Route exact path="/departments" component={DepartmentList} />
         <Route exact path='/departmentform' component={DepartmentForm} />
+        <Route exact path="/products" component={ProductList} />
+        <Route exact path="/productform" component={ProductForm} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
