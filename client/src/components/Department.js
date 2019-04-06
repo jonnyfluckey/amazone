@@ -10,6 +10,7 @@ import ProductList from './ProductList';
 import axios from 'axios'
 >>>>>>> 23a9f58317a3696d7743997e0ad24f4d4238d60c
 
+
 class Department extends Component {
   state = { products: [] }
 
@@ -48,7 +49,7 @@ class Department extends Component {
   render() {
     const { name } = this.props
 
-    return (
+
 
         <>
         <Grid>

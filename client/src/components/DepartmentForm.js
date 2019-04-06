@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Form, } from "semantic-ui-react";
 
 class DepartmentForm extends Component {
   state = { name: '' }
 
   componentDidMount() {
+    
     if (this.props.id) {
       const { name, id } = this.props
       this.setState({ name, id })
@@ -21,7 +23,8 @@ class DepartmentForm extends Component {
       this.props.editDepartment(this.state)
       this.props.toggleEdit()
     } else {
-      this.props.add(this.state)
+      // debugger
+      this.props.addDepartment(this.state)
     }
     this.setState({ name: '' })
   }
@@ -29,18 +32,18 @@ class DepartmentForm extends Component {
   render () {
     const { name } = this.state
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input
-          placeholder='Name'
-          name='name'
-          value={name}
-          onChange={this.handleChange}
-        />
-        <input
-          type='submit'
-          value='Submit'
-        />
-      </form>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group widths="equal">
+          <Form.Input
+            placeholder='Name'
+            label='name'
+            name="name"
+            onChange={this.handleChange}
+            value={name}
+          />
+          <Form.Button type="submit" color="green">Submit</Form.Button>
+      </Form.Group>
+    </Form>
     )
   }
 }
