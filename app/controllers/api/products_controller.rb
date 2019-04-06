@@ -13,8 +13,8 @@ class Api::ProductsController < ProductsController
     end
   
     def update
-      product = Product.find()params[:id]
-      # product.update( ) !product.complete )
+      product = Product.find(params[:id])
+      product.update(complete: !product.complete )
       render json: product
     end
   
