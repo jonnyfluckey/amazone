@@ -22,8 +22,9 @@ const App = () => (
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/departments" component={DepartmentList} />
+        <Route path="/departments/:Id" component={DepartmentList} />
         <Route exact path='/departmentform' component={DepartmentForm} />
-        <Route exact path="/products" component={ProductList} />
+        <Route path="/department/:departmentId/products" component={ProductList} />
         <Route exact path="/productform" component={ProductForm} />
         <Route component={NoMatch} />
       </Switch>
