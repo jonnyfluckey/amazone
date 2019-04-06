@@ -5,7 +5,7 @@ import DepartmentForm from './DepartmentForm';
 
 class DepartmentList extends Component {
 
-  state = { departments: []}
+  state = { departments: [] }
 
   componentDidMount() {
     // grab post from db
@@ -20,11 +20,11 @@ class DepartmentList extends Component {
 
   displayDepartment = () => {
     // editPost={this.editPost} add back in later once defined
-    return this.state.departments.map( department => <Department key={department.id} {...department} />)
+    return this.state.departments.map( d => <Department key={d.id} {...d} />)
   }
 
   addDepartment = (department) => {
-    axios.post('/api/departments', { department })
+    axios.post('/api/departments',  department )
       .then( res => {
         const { departments } = this.state
         this.setState({ departments: [...departments, res.data] })
@@ -52,15 +52,11 @@ class DepartmentList extends Component {
   render() {
 
     return(
-      <>
+      <div>
       <h1>List of Departments</h1>
-      <ul>
-        {
-          this.displayDepartment()
-        }
-      </ul>
-        <DepartmentForm  add={this.addDepartment} editDepartment={this.editDepartment} />
-      </>
+        { this.displayDepartment() }
+        <DepartmentForm addDepartment={this.addDepartment} editDepartment={this.editDepartment} />
+    </div>
     )
   }
 }

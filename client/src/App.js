@@ -10,23 +10,27 @@ import ProtectedRoute from './shared/ProtectedRoute';
 import DepartmentList from './components/DepartmentList';
 import ProductList from './components/ProductList';
 import ProductForm from './components/ProductForm';
+import DepartmentForm from './components/DepartmentForm';
+import FetchUser from './shared/FetchUser'
 
 
 const App = () => (
   <Fragment>
     <Navbar />
+    <FetchUser>
     <Container>
       <Switch>
         <ProtectedRoute exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/departments" component={DepartmentList} />
-        <Route exact path='/departmentform' component={DepartmentForm} />
+        <ProtectedRoute exact path="/departments" component={DepartmentList} />
+        // <Route exact path='/departmentform' component={DepartmentForm} />
         <Route exact path="/products" component={ProductList} />
         <Route exact path="/productform" component={ProductForm} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
+    </FetchUser>
   </Fragment>
 )
 

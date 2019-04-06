@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import {Container} from 'semantic-ui-react';
 import Product from './Product';
 
-const Department = (name, ) => (
+const Department = ({name}) => (
 
-    <Container>
+    // <Container>
       <h1>{name}</h1>
-      <ul>
-        { }
-      </ul>
+      // <ul>
 
-    </Container>
-  
+      // </ul>
+
+    // </Container>
+
 
 
 )

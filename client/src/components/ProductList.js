@@ -35,7 +35,7 @@ class ProductList extends Component {
       axios.put(`/api/products/${product.id}`, {product})
       .then( res => {
           const products = this.state.products.map( p => {
-              if (p.id === post) 
+              if (p.id === product) 
                 return res.data
               return p
           })
@@ -55,6 +55,6 @@ class ProductList extends Component {
       </>
     )
   }
-} 
+}
 
 export default ProductList;
