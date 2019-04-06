@@ -21,12 +21,12 @@ const App = () => (
     <FetchUser>
     <Container>
       <Switch>
-        <ProtectedRoute exact path="/" component={Home} />
+        <ProtectedRoute exact path="/" component={DepartmentList} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <ProtectedRoute exact path="/departments" component={DepartmentList} />
         // <Route exact path='/departmentform' component={DepartmentForm} />
-        <Route exact path="/products" component={ProductList} />
+        {/* <Route path="/department/:Id" component={ProductList} /> */}
         <Route component={NoMatch} />
       </Switch>
     </Container>
