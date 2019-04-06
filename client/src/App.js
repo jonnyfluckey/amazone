@@ -11,7 +11,6 @@ import DepartmentList from './components/DepartmentList';
 import DepartmentForm from './components/DepartmentForm';
 import ProductList from './components/ProductList';
 import ProductForm from './components/ProductForm';
-import DepartmentForm from './components/DepartmentForm';
 import FetchUser from './shared/FetchUser'
 
 
