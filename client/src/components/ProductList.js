@@ -7,6 +7,7 @@ import DepartmentList from './DepartmentList';
 class ProductList extends Component {
   state = { products: [] }
 
+
   componentDidMount = (department) => {
     axios.get(`/api/departments/${department.id}/product`)
       .then( res => {
@@ -16,6 +17,7 @@ class ProductList extends Component {
         console.log(err)
       })
   }
+
 
   displayProduct = () => {
     return this.state.products.map( product => <Product key={product.id} {...product} />)
@@ -50,9 +52,8 @@ class ProductList extends Component {
   render() {
     return (
       <>
-        <h1>Product List</h1>
-      
-        { this.displayProduct() }
+        
+      { this.displayProduct() }
       </>
     )
   }
