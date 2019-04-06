@@ -10,7 +10,6 @@ class DepartmentList extends Component {
 
   componentDidMount() {
     // grab post from db
-    const { id } = this.props.match.params 
     axios.get('/api/departments')
       .then( res => {
         this.setState({ departments: res.data })
