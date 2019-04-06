@@ -3,6 +3,7 @@ import {Container, Card, Image, Grid} from 'semantic-ui-react';
 import ProductList from './ProductList';
 import axios from 'axios'
 
+
 class Department extends Component {
   state = { products: [] }
 
@@ -18,7 +19,7 @@ class Department extends Component {
   render() {
     const { name } = this.props
 
-    return (
+
 
         <>
         <Grid>
