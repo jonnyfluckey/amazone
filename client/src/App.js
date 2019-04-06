@@ -8,6 +8,7 @@ import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import ProtectedRoute from './shared/ProtectedRoute';
 import DepartmentList from './components/DepartmentList';
+import DepartmentForm from './components/DepartmentForm';
 import ProductList from './components/ProductList';
 import ProductForm from './components/ProductForm';
 
