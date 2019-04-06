@@ -6,15 +6,15 @@ import ProductForm from './ProductForm';
 class ProductList extends Component {
   state = { products: [] }
 
-  componentDidMount() {
-    axios.get('/api/products')
-      .then( res => {
-        this.setState({ products: res.data })
-      })
-      .catch( err => {
-        console.log(err)
-      })
-  }
+  // componentDidMount() {
+  //   axios.get(`/api/departments/${id}/products`)
+  //     .then( res => {
+  //       this.setState({ products: res.data })
+  //     })
+  //     .catch( err => {
+  //       console.log(err)
+  //     })
+  // }
 
   displayProduct = () => {
     return this.state.products.map( product => <Product key={product.id} {...product} />)
@@ -49,9 +49,8 @@ class ProductList extends Component {
   render() {
     return (
       <>
-        <h1>Product List</h1>
-      
-        { this.displayProduct() }
+        
+      { this.displayProduct() }
       </>
     )
   }
