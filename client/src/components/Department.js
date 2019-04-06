@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
 import {Container, Card, Image, Grid } from 'semantic-ui-react';
-import Product from './Product';
+import ProductList from './ProductList';
+import axios from 'axios';
+
 
 class Department extends Component {
+
+  // state = { products: [] }
+
+  
+  // componentDidMount() {
+  //   const { id } = this.props.match.params
+  //   // grab post from db
+  //   axios.get(`/api/departments/${id}`)
+  //     .then( res => {
+  //       this.setState({ products: res.data })
+  //     })
+  //     .catch( err => {
+  //       console.log(err)
+  //     })
+  // }
+
+  // displayDepartment = () => {
+  //   return this.state.products.map( product => <ProductList key={product.id} {...product} />)
+
+  // }
 
   render() {
     const { name } = this.props
