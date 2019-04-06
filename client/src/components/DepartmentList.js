@@ -59,7 +59,7 @@ class DepartmentList extends Component {
           this.displayDepartment()
         }
       </ul>
-        <DepartmentForm />
+        <DepartmentForm  add={this.addDepartment} editDepartment={this.editDepartment} />
       </>
     )
   }
