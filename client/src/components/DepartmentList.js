@@ -51,13 +51,12 @@ class DepartmentList extends Component {
 
   render() {
 
+
     return(
       <>
       <h1>List of Departments</h1>
       <ul>
-        {
-          this.displayDepartment()
-        }
+        {this.displayDepartment()}
       </ul>
         <DepartmentForm />
       </>

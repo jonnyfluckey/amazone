@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import {Container} from 'semantic-ui-react';
+import {Container, Card} from 'semantic-ui-react';
 import Product from './Product';
 
-const Department = (name, ) => (
+class Department extends Component {
 
-    <Container>
-      <h1>{name}</h1>
-      <ul>
-        { }
-      </ul>
+  render() {
+    const { name } = this.props
 
-    </Container>
-  
+    return (
+      <Container>
+        <Card>{name}</Card>
+      </Container>
 
-
-)
+    )
+  }
+}
 
 
 export default Department
